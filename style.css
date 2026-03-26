@@ -1,11 +1,11 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --primary: #1A2B4C;     /* Navy Blue */
-    --accent: #88B7A4;      /* Mint */
-    --earthy: #A89078;      /* Earthy Tone */
-    --bg-light: #F9F6F0;    /* Slightly beige */
-    --bg-gray: #E8E4D9;     /* Darker beige/earthy gray */
+    --primary: #1A2B4C;     
+    --accent: #88B7A4;     
+    --earthy: #A89078;      
+    --bg-light: #F9F6F0;    
+    --bg-gray: #E8E4D9;     
     --text-main: #2C353E;
     --text-light: #5E6A75;
     --white: #ffffff;
@@ -24,9 +24,9 @@ p { font-size: 1.05rem; color: var(--text-light); margin-bottom: 20px; }
 a { text-decoration: none; color: var(--primary); transition: var(--transition); }
 
 .btn {
-    display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 32px;
     border-radius: 50px; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.5px;
-    text-transform: uppercase; cursor: pointer; transition: var(--transition); border: none;
+    text-transform: uppercase; cursor: pointer; transition: var(--transition); border: none; white-space: nowrap; text-align: center;
 }
 .btn-primary { background-color: var(--primary); color: var(--white); border: 1px solid var(--primary); }
 .btn-primary:hover { background-color: transparent; color: var(--primary); -webkit-transform: translateY(-3px); transform: translateY(-3px); }
@@ -90,7 +90,8 @@ a { text-decoration: none; color: var(--primary); transition: var(--transition);
     .hero-text h2 { font-size: 3.5rem; }
     .services-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
-    .nav-links { gap: 20px; }
+    .nav-links { gap: 15px; }
+    .nav-links a.btn { padding: 12px 20px; font-size: 0.85rem; }
 }
 
 @media (max-width: 768px) {
@@ -139,6 +140,7 @@ a { text-decoration: none; color: var(--primary); transition: var(--transition);
     .nav-links.active {
         left: 0;
     }
-    .nav-links a { width: 100%; text-align: center; }
+    .nav-links a:not(.btn) { width: 100%; text-align: center; }
+    .nav-links a.btn { width: auto; max-width: 280px; margin: 10px auto 0; padding: 14px 24px; font-size: 0.9rem; }
 }
 
