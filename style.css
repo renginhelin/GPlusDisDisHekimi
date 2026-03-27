@@ -81,7 +81,18 @@ a { text-decoration: none; color: var(--primary); transition: var(--transition);
 .footer h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
 .footer ul { list-style: none; }
 .footer ul li { margin-bottom: 12px; }
-.footer ul li a { color: var(--text-light); font-size: 0.95rem; }
+.footer ul li a { 
+    color: var(--text-light); 
+    font-size: 0.95rem; 
+    display: inline-flex; 
+    align-items: flex-start; 
+    gap: 8px; 
+    max-width: 100%;
+}
+.footer ul li a i { flex-shrink: 0; width: 16px; text-align: center; margin-top: 4px; }
+.footer ul li a span.email-text { 
+    white-space: nowrap; 
+}
 .footer ul li a:hover { color: var(--accent); }
 .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(0,0,0,0.1); color: var(--text-light); font-size: 0.9rem; }
 
