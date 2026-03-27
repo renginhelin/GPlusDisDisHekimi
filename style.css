@@ -46,7 +46,15 @@ a { text-decoration: none; color: var(--primary); transition: var(--transition);
 .nav-links a:not(.btn):hover, .nav-links a.active { color: var(--primary); }
 .nav-links a:not(.btn)::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--accent); transition: var(--transition); }
 .nav-links a:not(.btn):hover::after { width: 100%; }
-
+  /* Language Selector */
+  .lang-dropdown { position: relative; display: flex; align-items: center; height: 100%; }
+  .lang-btn { background: transparent; border: none; font-size: 0.9rem; font-weight: 600; color: var(--text-light); cursor: pointer; display: flex; align-items: center; gap: 6px; font-family: inherit; padding: 0; outline: none; transition: var(--transition); }
+  .lang-btn:hover { color: var(--primary); }
+  .lang-menu { position: absolute; top: calc(100% + 5px); right: 50%; transform: translateX(50%) translateY(-10px); background-color: var(--bg-light); min-width: 120px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 8px; padding: 10px 0; display: flex; flex-direction: column; opacity: 0; visibility: hidden; pointer-events: none; transition: var(--transition); z-index: 100; border: 1px solid rgba(0,0,0,0.05); }
+  .lang-dropdown:hover .lang-menu { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(50%) translateY(0); }
+  .lang-menu a { padding: 10px 20px; color: var(--text-light) !important; text-decoration: none; font-size: 0.9rem; transition: var(--transition); text-align: center; font-weight: 600; }
+  .lang-menu a:hover { background-color: rgba(0,0,0,0.02); color: var(--primary) !important; }
+  .nav-links .lang-menu a::after { display: none !important; }
 .hero { padding: 160px 0 100px; min-height: 100vh; display: flex; align-items: center; background: radial-gradient(circle at right top, rgba(136, 183, 164, 0.15) 0%, transparent 40%); }
 .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .hero-text h2 { font-size: 4.5rem; font-weight: 400; line-height: 1.1; margin-bottom: 30px; }
@@ -207,5 +215,9 @@ a { text-decoration: none; color: var(--primary); transition: var(--transition);
     }
     .nav-links a:not(.btn) { width: 100%; text-align: center; }
     .nav-links a.btn { width: auto; max-width: 280px; margin: 10px auto 0; padding: 14px 24px; font-size: 0.9rem; }
+    
+    .lang-dropdown { justify-content: center; width: 100%; margin-top: 10px; height: auto; }
+    .lang-menu { position: static; transform: none; opacity: 1; visibility: visible; pointer-events: auto; box-shadow: none; border: none; padding: 0; flex-direction: row; justify-content: center; gap: 15px; background: transparent; }
+    .lang-btn { display: none; }
 }
 
