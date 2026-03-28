@@ -137,11 +137,7 @@
                         <textarea name="Message" rows="5" placeholder="How can we help you?" required title="Please fill out this field." oninvalid="this.setCustomValidity('Please fill out this field.')" oninput="this.setCustomValidity('')"></textarea>
                     </div>
                     
-                    <div id="hcaptcha-box" class="h-captcha" style="margin-bottom: 20px; display: flex; justify-content: center;"></div>
-                    <!-- Obfuscate hCaptcha Sitekey -->
-                    <script>
-                        document.getElementById('hcaptcha-box').setAttribute('data-sitekey', atob('NTBiMmZlNjUtYjAwYi00YjllLWFkNjItM2JhNDcxMDk4YmUy'));
-                    </script>
+                    <div class="h-captcha" data-captcha="true" data-lang="en" style="margin-bottom: 20px; display: flex; justify-content: center;"></div>
 
                     <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%;">Send Message</button>
                     <p id="formResult" style="text-align:center; margin-top:15px; display:none;"></p>
@@ -150,8 +146,8 @@
         </div>
     </section>
 
-    <!-- Native hCaptcha Script in English -->
-    <script src="https://js.hcaptcha.com/1/api.js?hl=en" async defer></script>
+    <!-- Web3Forms hCaptcha Script -->
+    <script src="https://web3forms.com/client/script.js" async defer></script>
     
     <!-- Intl-Tel-Input Script (Includes libphonenumber utils) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/js/intlTelInput.min.js"></script>
