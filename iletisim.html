@@ -11,7 +11,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Flag Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
+    <!-- Intl-Tel-Input (International Phone Input CSS) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/css/intlTelInput.css" />
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Ensures the new phone input takes full width of the container */
+        .iti {
+            width: 100%;
+        }
+        .iti__flag {background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/img/flags.png");}
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .iti__flag {background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/img/flags@2x.png");}
+        }
+    </style>
 </head>
 <body>
 
@@ -105,7 +118,7 @@
                         <input type="email" name="Eposta" placeholder="E-posta Adresiniz" required>
                     </div>
                     <div class="input-group">
-                        <input type="tel" name="Telefon" placeholder="Telefon Numaranız">
+                        <input type="tel" id="phoneInput" name="Telefon" placeholder="Telefon Numaranız" required>
                     </div>
                     <div class="input-group">
                         <textarea name="Mesaj" rows="5" placeholder="Nasıl yardımcı olabiliriz?" required></textarea>
@@ -122,31 +135,84 @@
 
     <!-- Web3Forms hCaptcha Script -->
     <script src="https://web3forms.com/client/script.js" async defer></script>
+    
+    <!-- Intl-Tel-Input Script (Includes libphonenumber utils) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/js/intlTelInput.min.js"></script>
 
     <!-- Form API Script -->
     <script>
         const form = document.getElementById('contactForm');
+        const phoneInputField = document.querySelector("#phoneInput");
+        
+        // Initialize the phone input plugin
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            initialCountry: "tr",
+            preferredCountries: ["tr"],
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/js/utils.js", // loads libphonenumber for formatting/validation
+        });
+
         const result = document.getElementById('formResult');
         const submitBtn = document.getElementById('submitBtn');
 
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            // Client-side Validation for hCaptcha
+            const emailInput = form.querySelector('input[name="Eposta"]').value;
+
+            submitBtn.textContent = 'Doğrulanıyor...';
+            submitBtn.disabled = true;
+            result.style.display = 'none';
+
+            // 1. Perform MX Record Domain Verification via Google DNS-over-HTTPS (DoH)
+            try {
+                // Extract domain from email (e.g. deneme.com from test@deneme.com)
+                const domain = emailInput.split('@')[1];
+                
+                // Directly check Google's Global DNS for MX (Mail Exchange) records
+                const mxCheck = await fetch(`https://dns.google/resolve?name=${domain}&type=MX`);
+                const dnsData = await mxCheck.json();
+
+                // If DNS Status is not 0 (Success) or there are no answers, the domain cannot receive mail
+                if (dnsData.Status !== 0 || !dnsData.Answer || dnsData.Answer.length === 0) {
+                    result.style.display = 'block';
+                    result.textContent = "Lütfen geçerli bir e-posta girin.";
+                    result.style.color = "red";
+                    submitBtn.textContent = 'Mesaj Gönder';
+                    submitBtn.disabled = false;
+                    return;
+                }
+            } catch (err) {
+                console.warn("DNS MX doğrulaması atlandı.");
+            }
+
+            // 2. Client-side Validation for hCaptcha
             const hCaptcha = form.querySelector('textarea[name=h-captcha-response]');
             if (!hCaptcha || !hCaptcha.value) {
                 result.style.display = 'block';
                 result.textContent = "Lütfen robot olmadığınızı doğrulayın (Captcha).";
                 result.style.color = "red";
+                submitBtn.textContent = 'Mesaj Gönder';
+                submitBtn.disabled = false;
+                return;
+            }
+
+            // 3. Validate Phone Number with libphonenumber (via intl-tel-input plugin)
+            if (!phoneInput.isValidNumber()) {
+                result.style.display = 'block';
+                result.textContent = "Lütfen geçerli bir telefon numarası girin.";
+                result.style.color = "red";
+                submitBtn.textContent = 'Mesaj Gönder';
+                submitBtn.disabled = false;
                 return;
             }
 
             submitBtn.textContent = 'Gönderiliyor...';
-            submitBtn.disabled = true;
-            result.style.display = 'none';
 
             const formData = new FormData(form);
             
+            // Override the raw phone input with the strict, full international format
+            formData.set('Telefon', phoneInput.getNumber());
+
             const secretKey = atob('ZWViNzM0YzYtMTRlNC00MDQxLWI5YzktODhlYzRlZDg2NzFi');
             formData.append('access_key', secretKey);
 
@@ -173,6 +239,11 @@
                 result.style.display = 'block';
                 submitBtn.textContent = 'Mesaj Gönder';
                 submitBtn.disabled = false;
+                
+                // Reset hCaptcha widget for subsequent submissions
+                if (window.hcaptcha) {
+                    hcaptcha.reset();
+                }
                 
                 setTimeout(() => {
                     result.style.display = 'none';
