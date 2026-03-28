@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <script>
-        // Language persistence: If preference is EN, redirect to English equivalent
-        if (localStorage.getItem('preferredLang') === 'en') {
-            window.location.replace('contact.html');
+        // Language persistence: If preference is TR, redirect back to Turkish equivalent
+        if (localStorage.getItem('preferredLang') === 'tr') {
+            window.location.replace('iletisim.html');
         }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletişim - G Plus Diş Hekimi</title>
+    <title>Contact - G Plus Diş Hekimi</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/logo.png">
     <!-- AOS CSS for scroll animations -->
@@ -44,16 +44,16 @@
                 </a>
             </div>
             <nav class="nav-links" id="navLinks">
-                <a href="index.html">Lorem</a>
-                <a href="index.html#expertise">Ipsum</a>
-                <a href="index.html#clinic">Dolor</a>
-                <a href="iletisim.html" class="active">İletişim</a>
-                <a href="index.html#contact" class="btn btn-primary">Randevu</a>
+                <a href="index-en.html">Lorem</a>
+                <a href="index-en.html#expertise">Ipsum</a>
+                <a href="index-en.html#clinic">Dolor</a>
+                <a href="contact.html" class="active">Contact</a>
+                <a href="index-en.html#contact" class="btn btn-primary">Appointment</a>
                 <div class="lang-dropdown">
-                    <button class="lang-btn"><span class="fi fi-tr"></span> Türkçe <i class="fa-solid fa-chevron-down" style="font-size: 0.7em; margin-top: 2px;"></i></button>
+                    <button class="lang-btn"><span class="fi fi-gb"></span> English <i class="fa-solid fa-chevron-down" style="font-size: 0.7em; margin-top: 2px;"></i></button>
                     <div class="lang-menu">
-                        <a href="javascript:void(0);" onclick="localStorage.setItem('preferredLang', 'tr'); window.location.reload();"><span class="fi fi-tr"></span> Türkçe</a>
-                        <a href="contact.html" onclick="localStorage.setItem('preferredLang', 'en');"><span class="fi fi-gb"></span> English</a>
+                        <a href="iletisim.html" onclick="localStorage.setItem('preferredLang', 'tr');"><span class="fi fi-tr"></span> Türkçe</a>
+                        <a href="javascript:void(0);" onclick="localStorage.setItem('preferredLang', 'en'); window.location.reload();"><span class="fi fi-gb"></span> English</a>
                     </div>
                 </div>
             </nav>
@@ -67,9 +67,9 @@
     <section class="contact-page">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="tagline">BİZE ULAŞIN</span>
-                <h2>İletişim Bilgileri</h2>
-                <p>Sorularınız, randevu talepleriniz ve daha fazlası için bize dilediğiniz kanaldan ulaşabilir veya aşağıdaki iletişim formunu doldurabilirsiniz.</p>
+                <span class="tagline">CONTACT US</span>
+                <h2>Contact Information</h2>
+                <p>You can reach us through any channel or fill out the contact form below for your questions, appointment requests, and more.</p>
             </div>
             
             <div class="contact-grid-main">
@@ -82,14 +82,14 @@
                     <div class="info-item">
                         <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
                         <div>
-                            <h4>Adresimiz</h4>
+                            <h4>Our Address</h4>
                             <p>Bağlar, Mimar Sinan Cd No:37A,<br>34209 Bağcılar/İstanbul, Türkiye</p>
                         </div>
                     </div>
                     <div class="info-item">
                         <div class="icon"><i class="fa-solid fa-phone"></i></div>
                         <div>
-                            <h4>Telefon</h4>
+                            <h4>Phone</h4>
                             <p><a href="tel:+905011749554" style="color:var(--text); text-decoration:none;">+90 501 174 95 54</a></p>
                         </div>
                     </div>
@@ -103,51 +103,55 @@
                     <div class="info-item">
                         <div class="icon"><i class="fa-solid fa-envelope"></i></div>
                         <div>
-                            <h4>E-posta</h4>
+                            <h4>E-mail</h4>
                             <p><a href="mailto:gplusdishekimi@gmail.com" style="color:var(--text); text-decoration:none;">gplusdishekimi@gmail.com</a></p>
                         </div>
                     </div>
                     <div class="info-item">
                         <div class="icon"><i class="fa-solid fa-clock"></i></div>
                         <div>
-                            <h4>Çalışma Saatleri</h4>
-                            <p>Her Gün: 11:00 - 23:00</p>
+                            <h4>Working Hours</h4>
+                            <p>Everyday: 11:00 - 23:00</p>
                         </div>
                     </div>
                     <div style="margin-top: 20px;">
-                        <a href="javascript:void(0);" class="btn btn-primary" style="display: inline-block;">Randevu</a>
+                        <a href="javascript:void(0);" class="btn btn-primary" style="display: inline-block;">Appointment</a>
                     </div>
                 </div>
             </div>
 
             <div class="contact-form-container" data-aos="fade-up" style="max-width: 800px; margin: 0 auto;">
-                <h3 style="text-align: center;">Bize Mesaj Gönderin</h3>
-                <p style="text-align: center; color: var(--text-light); margin-bottom: 30px;">Hızlı dönüş almak için formu eksiksiz doldurabilirsiniz.</p>
+                <h3 style="text-align: center;">Send Us a Message</h3>
+                <p style="text-align: center; color: var(--text-light); margin-bottom: 30px;">You can fill out the form completely for a quick response.</p>
                 <form id="contactForm" class="contact-form">
                     <div class="input-group">
-                        <input type="text" name="İsim" placeholder="Adınız Soyadınız" required>
+                        <input type="text" name="Name" placeholder="Full Name" required title="Please fill out this field." oninvalid="this.setCustomValidity('Please fill out this field.')" oninput="this.setCustomValidity('')">
                     </div>
                     <div class="input-group">
-                        <input type="email" name="Eposta" placeholder="E-posta Adresiniz" required>
+                        <input type="email" name="Email" placeholder="Email Address" required title="Please enter a valid email address." oninvalid="this.setCustomValidity(this.validity.valueMissing ? 'Please fill out this field.' : 'Please enter a valid email address.')" oninput="this.setCustomValidity(''); if(!this.validity.valid) this.setCustomValidity(this.validity.valueMissing ? 'Please fill out this field.' : 'Please enter a valid email address.')">
                     </div>
                     <div class="input-group">
-                        <input type="tel" id="phoneInput" name="Telefon" placeholder="Telefon Numaranız" required>
+                        <input type="tel" id="phoneInput" name="Phone" placeholder="Phone Number" required title="Please fill out this field." oninvalid="this.setCustomValidity('Please fill out this field.')" oninput="this.setCustomValidity('')">
                     </div>
                     <div class="input-group">
-                        <textarea name="Mesaj" rows="5" placeholder="Nasıl yardımcı olabiliriz?" required></textarea>
+                        <textarea name="Message" rows="5" placeholder="How can we help you?" required title="Please fill out this field." oninvalid="this.setCustomValidity('Please fill out this field.')" oninput="this.setCustomValidity('')"></textarea>
                     </div>
                     
-                    <div class="h-captcha" data-captcha="true" style="margin-bottom: 20px; display: flex; justify-content: center;"></div>
+                    <div id="hcaptcha-box" class="h-captcha" style="margin-bottom: 20px; display: flex; justify-content: center;"></div>
+                    <!-- Obfuscate hCaptcha Sitekey -->
+                    <script>
+                        document.getElementById('hcaptcha-box').setAttribute('data-sitekey', atob('NTBiMmZlNjUtYjAwYi00YjllLWFkNjItM2JhNDcxMDk4YmUy'));
+                    </script>
 
-                    <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%;">Mesaj Gönder</button>
+                    <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%;">Send Message</button>
                     <p id="formResult" style="text-align:center; margin-top:15px; display:none;"></p>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Web3Forms hCaptcha Script -->
-    <script src="https://web3forms.com/client/script.js" async defer></script>
+    <!-- Native hCaptcha Script in English -->
+    <script src="https://js.hcaptcha.com/1/api.js?hl=en" async defer></script>
     
     <!-- Intl-Tel-Input Script (Includes libphonenumber utils) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/js/intlTelInput.min.js"></script>
@@ -170,9 +174,9 @@
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            const emailInput = form.querySelector('input[name="Eposta"]').value;
+            const emailInput = form.querySelector('input[name="Email"]').value;
 
-            submitBtn.textContent = 'Doğrulanıyor...';
+            submitBtn.textContent = 'Verifying...';
             submitBtn.disabled = true;
             result.style.display = 'none';
 
@@ -188,23 +192,23 @@
                 // If DNS Status is not 0 (Success) or there are no answers, the domain cannot receive mail
                 if (dnsData.Status !== 0 || !dnsData.Answer || dnsData.Answer.length === 0) {
                     result.style.display = 'block';
-                    result.textContent = "Lütfen geçerli bir e-posta girin.";
+                    result.textContent = "Please enter a valid email address.";
                     result.style.color = "red";
-                    submitBtn.textContent = 'Mesaj Gönder';
+                    submitBtn.textContent = 'Send Message';
                     submitBtn.disabled = false;
                     return;
                 }
             } catch (err) {
-                console.warn("DNS MX doğrulaması atlandı.");
+                console.warn("DNS MX verification skipped.");
             }
 
             // 2. Client-side Validation for hCaptcha
             const hCaptcha = form.querySelector('textarea[name=h-captcha-response]');
             if (!hCaptcha || !hCaptcha.value) {
                 result.style.display = 'block';
-                result.textContent = "Lütfen robot olmadığınızı doğrulayın (Captcha).";
+                result.textContent = "Please verify that you are not a robot (Captcha).";
                 result.style.color = "red";
-                submitBtn.textContent = 'Mesaj Gönder';
+                submitBtn.textContent = 'Send Message';
                 submitBtn.disabled = false;
                 return;
             }
@@ -212,19 +216,19 @@
             // 3. Validate Phone Number with libphonenumber (via intl-tel-input plugin)
             if (!phoneInput.isValidNumber()) {
                 result.style.display = 'block';
-                result.textContent = "Lütfen geçerli bir telefon numarası girin.";
+                result.textContent = "Please enter a valid phone number.";
                 result.style.color = "red";
-                submitBtn.textContent = 'Mesaj Gönder';
+                submitBtn.textContent = 'Send Message';
                 submitBtn.disabled = false;
                 return;
             }
 
-            submitBtn.textContent = 'Gönderiliyor...';
+            submitBtn.textContent = 'Sending...';
 
             const formData = new FormData(form);
             
             // Override the raw phone input with the strict, full international format
-            formData.set('Telefon', phoneInput.getNumber());
+            formData.set('Phone', phoneInput.getNumber());
 
             const secretKey = atob('ZWViNzM0YzYtMTRlNC00MDQxLWI5YzktODhlYzRlZDg2NzFi');
             formData.append('access_key', secretKey);
@@ -236,21 +240,21 @@
             .then(async (response) => {
                 let json = await response.json();
                 if (response.status == 200) {
-                    result.textContent = "Mesajınız başarıyla iletildi. En kısa sürede size dönüş yapacağız.";
+                    result.textContent = "Your message has been sent successfully. We will get back to you as soon as possible.";
                     result.style.color = "green";
                     form.reset();
                 } else {
-                    result.textContent = json.message || "Bir hata oluştu. Lütfen daha sonra tekrar deneyin.";
+                    result.textContent = json.message || "An error occurred. Please try again later.";
                     result.style.color = "red";
                 }
             })
             .catch(error => {
-                result.textContent = "Bir hata oluştu. Lütfen bağlantınızı kontrol edin.";
+                result.textContent = "An error occurred. Please check your connection.";
                 result.style.color = "red";
             })
             .then(function() {
                 result.style.display = 'block';
-                submitBtn.textContent = 'Mesaj Gönder';
+                submitBtn.textContent = 'Send Message';
                 submitBtn.disabled = false;
                 
                 // Reset hCaptcha widget for subsequent submissions
@@ -294,7 +298,7 @@
                 </ul>
             </div>
             <div>
-                <h4>İLETİŞİM</h4>
+                <h4>CONTACT</h4>
                 <ul>
                         <li><a href="tel:+905011749554"><i class="fa-solid fa-phone"></i> <span>+90 501 174 95 54</span></a></li>
                         <li><a href="mailto:gplusdishekimi@gmail.com"><i class="fa-solid fa-envelope"></i> <span class="email-text">gplusdishekimi@gmail.com</span></a></li>
