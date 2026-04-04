@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        // Language persistence: If preference is EN, redirect to treatments.html
+        if (localStorage.getItem('preferredLang') === 'en') {
+            window.location.replace('treatments.html' + window.location.hash);
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tedaviler - G Plus Diş Hekimi</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- AOS CSS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Flag Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .treatments-page {
+            padding: 160px 0 100px;
+        }
+        .treatments-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+        @media (max-width: 1024px) {
+            .treatments-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .treatments-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit;">
+                    <img src="images/logo.png" alt="Logotype" style="height: 100px; width: auto; border-radius: 4px; mix-blend-mode: multiply;">
+                    <h1>G Plus Diş Hekimi</h1>
+                </a>
+            </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="tedaviler.html" class="active">Tedaviler</a>
+                <a href="index.html#clinic">Kliniğimiz</a>
+                <a href="iletisim.html">İletişim</a>
+                <a href="index.html#contact" class="btn btn-primary">Randevu</a>
+                <div class="lang-dropdown">
+                    <button class="lang-btn"><span class="fi fi-tr"></span> Türkçe <i class="fa-solid fa-chevron-down" style="font-size: 0.7em; margin-top: 2px;"></i></button>
+                    <div class="lang-menu">
+                        <a href="javascript:void(0);" onclick="localStorage.setItem('preferredLang', 'tr'); window.location.reload();"><span class="fi fi-tr"></span> Türkçe</a>
+                        <a href="javascript:void(0);" onclick="localStorage.setItem('preferredLang', 'en'); window.location.replace('treatments.html');"><span class="fi fi-gb"></span> English</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Treatments Section -->
+    <section class="treatments-page">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="tagline">HİZMETLER</span>
+                <h2>Tedaviler</h2>
+                <p>Ağız ve diş sağlığınız için en yeni teknolojileri kullanarak kişiye özel, ağrısız ve güvenilir tedavi seçenekleri sunuyoruz.</p>
+            </div>
+            
+            <div class="treatments-grid">
+                <!-- Treatment 1 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="fa-solid fa-tooth"></i></div>
+                    <h3>Muayene ve Röntgen</h3>
+                    <p>Kliniğimize geldiğinizde sadece şikayetinize odaklanmıyor, radyolojik görüntülemelerle desteklenmiş kapsamlı bir muayene yapıyoruz. Bu detaylı incelemeler sayesinde, henüz fark etmediğiniz sorunları erkenden saptayarak size en uygun ve güvenilir tedavi planını oluşturuyoruz.</p>
+                </div>
+                
+                <!-- Treatment 2 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon"><i class="fa-solid fa-gem"></i></div>
+                    <h3>Diş Eti Tedavisi</h3>
+                    <p>Diş ve dental implant çevresi dokularda gelişen hastalıkların teşhis ve tedavisini amaçlar. Diş eti hastalıkları dişin çevresinde yer alan diş eti, kemik gibi yapıların kaybına sebep olur. Bu hastalıklarda esas sebep mikrobiyal dental plaktır. Dental plağın uzaklaştırılması tedavide ve hastalığın önlenmesinde esastır.</p>
+                </div>
+                
+                <!-- Treatment 3 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon"><i class="fa-solid fa-face-smile"></i></div>
+                    <h3>Diş Dolgusu</h3>
+                    <p>Çürük nedeni ile madde kaybına uğramış dişlerin, çürük temizlendikten sonra çeşitli materyaller ile doldurularak, dişin işlevlerini yerine getirmesini sağlamak amacı ile yapılan tedavilerdir. Diş dolgusu işlemi çürük seviyesine göre değişiklik gösterebilir. Öncesinde hekiminiz gerek görürse lokal anestezi uygular.</p>
+                </div>
+
+                <!-- Treatment 4 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="fa-solid fa-teeth"></i></div>
+                    <h3>Diş Beyazlatma</h3>
+                    <p>Çay, kahve, asitli içecekler ve sigara kullanımı ya da biyolojik etkenlerle sararan dişlerin özel kimyasallarla birkaç ton açılarak beyazlık kazanmasıdır.</p>
+                </div>
+
+                <!-- Treatment 5 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon"><i class="fa-solid fa-syringe"></i></div>
+                    <h3>Kanal Tedavisi</h3>
+                    <p>Kanal tedavisi dişin kök kısmında yer alan dokular ile ilişkili tedavidir. Kullanılan aletler yardımıyla kökün içi temizlenir. Tedavi, tek seferde bitebileceği gibi, dişin durumuna bağlı olarak, birkaç hafta boyunca farklı seanslar şeklinde de uygulanabilir. Hasta tarafından tedavinin aksatılması, tedavinin uzamasına, şikayetlerin devam etmesine ve başarı oranının düşmesine neden olabilir.</p>
+                </div>
+
+                <!-- Treatment 6 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon"><i class="fa-solid fa-teeth-open"></i></div>
+                    <h3>Ortodonti Tedavisi</h3>
+                    <p>Kapanış bozuklukları, dişlerdeki çapraşıklıklar ve ayrı konumlanmış dişlerin tel (braket) ya da gelişmiş apereyler yardımıyla çene kavisinde doğru şekilde sıralanması tedavilerini kapsar.</p>
+                </div>
+
+                <!-- Treatment 7 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>Diş Çekimi</h3>
+                    <p>Tedavi edilemeyecek durumda olan dişlerin çekimi kalan dokuları korumak için önemli bir işlemdir. Gömülü olma gibi durumlarda cerrahi çekim yolu tercih edilebilir. Bu işlemler genellikle lokal anestezi altında yapılır. Ancak gerek duyulduğunda bilinçli sedasyon veya genel anestezi altında da yapılabilir. Sigara, alkol ve diğer alışkanlıklar yara iyileşmesini geciktireceğinden tedavinizin olumsuz sonuçlanmasına neden olacaktır. Bu konuda da hekiminizin önerilerine uyunuz.</p>
+                </div>
+
+                <!-- Treatment 8 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon"><i class="fa-solid fa-laptop-medical"></i></div>
+                    <h3>Protez</h3>
+                    <p>İleri madde kaybı olan dişlerde veya diş eksikliklerinde, ağıza yapıştırılan ve hastanın çıkaramadığı sabit protezler kullanılır.
+Bu protezler metal destekli porselen ya da zirkonyum gibi materyallerden yapılabilir.
+Kaplama veya köprü yapılabilmesi için dişlerin belirli ölçüde küçültülmesi gerekir.
+İmplantın mümkün olmadığı ya da tercih edilmediği tam dişsizlik durumlarında ise takıp çıkarılabilen protezler tercih edilir.</p>
+                </div>
+
+                <!-- Treatment 9 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon"><i class="fa-solid fa-child"></i></div>
+                    <h3>Çocuk Diş Hekimliği</h3>
+                    <p>Bebeklikten ergenliğe kadar geçen sürede çocukların süt ve kalıcı dişlerinin korunmasını amaçlayan uygulamalardır. Çürük gelişimini önleyici koruyucu dolgular ve flor uygulamalarını içerir.</p>
+                </div>
+
+                <!-- Treatment 10 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="fa-solid fa-hand-holding-medical"></i></div>
+                    <h3>Cerrahi Gömülü Diş Çekimi</h3>
+                    <p>Gömülü olma gibi durumlarda cerrahi çekim yolu tercih edilebilir. Bu işlemler genellikle lokal anestezi altında yapılır. Ancak gerek duyulduğunda bilinçli sedasyon veya genel anestezi altında da yapılabilir.</p>
+                </div>
+
+                <!-- Treatment 11 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="fa-solid fa-hand-holding-medical"></i></div>
+                    <h3>Dental İmplant</h3>
+                    <p>Diş eksiklikleri, çene eklemine iki taraflı olarak dengesiz kuvvet iletildiğinden, daha ileri dönemlerde eklem problemlerine yol açabilmekte ve fonksiyona girmeyen çene kemiğinin devamlı bir şekilde erimesine neden olmaktadır. İmplantlar çene kemiğine, lokal anestezi altında, steril koşullarda yerleştirilen ve diş köklerini taklit eden ve bu problemleri önlemeye yarayan bir tedavi yöntemidir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Info Section -->
+    <section class="banner" data-aos="fade-in">
+        <div class="container">
+            <span class="tagline" data-aos="fade-up">SAĞLIKLI GÜLÜŞLER</span>
+            <h2 data-aos="fade-up" data-aos-delay="100">Daha fazla bilgi ve randevu için bizimle iletişime geçin.</h2>
+            <a href="iletisim.html" class="btn btn-primary" data-aos="fade-up" data-aos-delay="300">İletişime Geç</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Logotype" style="height: 100px; width: auto; border-radius: 4px; mix-blend-mode: multiply;">
+                    <h2 style="font-size: 1.5rem; margin:0;">G Plus Diş Hekimi</h2>
+                </div>
+                <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+            </div>
+            <div>
+                <h4>Hızlı Menü</h4>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="tedaviler.html">Tedaviler</a></li>
+                    <li><a href="index.html#clinic">Kliniğimiz</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Faydalı Linkler</h4>
+                <ul>
+                    <li><a href="#">Aydınlatma Metni</a></li>
+                    <li><a href="#">Gizlilik Politikası</a></li>
+                    <li><a href="#">SSS</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>İLETİŞİM</h4>
+                <ul>
+                        <li><a href="tel:+905011749554"><i class="fa-solid fa-phone"></i> <span>+90 501 174 95 54</span></a></li>
+                        <li><a href="mailto:gplusdishekimi@gmail.com"><i class="fa-solid fa-envelope"></i> <span class="email-text">gplusdishekimi@gmail.com</span></a></li>
+                        <li><a href="https://www.google.com/maps/place/Diş+Hekimi+Bükem+Gezginer/@41.0254478,28.8154255,17z/data=!3m1!4b1!4m6!3m5!1s0x14caa500405deb1d:0xfdbac48294c09ecf!8m2!3d41.0254478!4d28.8154255!16s%2Fg%2F11yrstpmqw!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-dot"></i> <span>Bağlar, Mimar Sinan Cd No:37A, 34212 Bağcılar/İstanbul, Türkiye</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 G Plus Diş Hekimi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://api.whatsapp.com/send?phone=905011749554" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            if(navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        AOS.init({
+            duration: 800, 
+            once: true,
+            offset: 50
+        });
+
+        // Add a slight blur effect to header on scroll
+        window.addEventListener("scroll", () => {
+            const header = document.querySelector(".header");
+            if (window.scrollY > 50) {
+                header.style.boxShadow = "0 4px 20px rgba(0,0,0,0.05)";
+            } else {
+                header.style.boxShadow = "none";
+            }
+        });
+    </script>
+</body>
+</html>
