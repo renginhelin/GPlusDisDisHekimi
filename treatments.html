@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <script>
-        // Language persistence: If preference is EN, redirect to treatments.html
-        if (localStorage.getItem('preferredLang') === 'en') {
-            window.location.replace('treatments.html' + window.location.hash);
+        // Language persistence: If preference is TR, redirect to tedaviler.html
+        if (localStorage.getItem('preferredLang') === 'tr') {
+            window.location.replace('tedaviler.html' + window.location.hash);
         }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tedaviler - G Plus Diş Hekimi</title>
+    <title>Treatments - G Plus Diş Hekimi</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
     <!-- AOS CSS for scroll animations -->
@@ -42,22 +42,22 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <a href="index.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit;">
+                <a href="index-en.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit;">
                     <img src="images/logo.png" alt="Logotype" style="height: 100px; width: auto; border-radius: 4px; mix-blend-mode: multiply;">
                     <h1>G Plus Diş Hekimi</h1>
                 </a>
             </div>
             <nav class="nav-links" id="navLinks">
-                <a href="hakkımızda.html">Hakkımızda</a>
-                <a href="tedaviler.html" class="active">Tedaviler</a>
-                <a href="iletisim.html">İletişim</a>
-                <a href="sss.html">SSS</a>
-                <a href="index.html#contact" class="btn btn-primary">Randevu</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="treatments.html" class="active">Treatments</a>
+                <a href="contact.html">Contact</a>
+                <a href="faq.html">FAQ</a>
+                <a href="index-en.html#contact" class="btn btn-primary">Appointment</a>
                 <div class="lang-dropdown">
-                    <button class="lang-btn"><span class="fi fi-tr"></span> Türkçe <i class="fa-solid fa-chevron-down" style="font-size: 0.7em; margin-top: 2px;"></i></button>
+                    <button class="lang-btn"><span class="fi fi-gb"></span> English <i class="fa-solid fa-chevron-down" style="font-size: 0.7em; margin-top: 2px;"></i></button>
                     <div class="lang-menu">
-                        <a href="javascript:void(0);" onclick="localStorage.setItem('preferredLang', 'tr'); window.location.reload();"><span class="fi fi-tr"></span> Türkçe</a>
-                        <a href="javascript:void(0);" onclick="localStorage.setItem('preferredLang', 'en'); window.location.replace('treatments.html');"><span class="fi fi-gb"></span> English</a>
+                        <a href="javascript:void(0);" onclick="localStorage.setItem('preferredLang', 'tr'); window.location.replace('tedaviler.html');"><span class="fi fi-tr"></span> Türkçe</a>
+                        <a href="javascript:void(0);" onclick="localStorage.setItem('preferredLang', 'en'); window.location.reload();"><span class="fi fi-gb"></span> English</a>
                     </div>
                 </div>
             </nav>
@@ -71,90 +71,87 @@
     <section class="treatments-page">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="tagline">HİZMETLER</span>
-                <h2>Tedaviler</h2>
-                <p>Ağız ve diş sağlığınız için en yeni teknolojileri kullanarak kişiye özel, ağrısız ve güvenilir tedavi seçenekleri sunuyoruz.</p>
+                <span class="tagline">SERVICES</span>
+                <h2>Treatments</h2>
+                <p>We offer personalized, painless, and reliable treatment options using the latest technologies for your oral and dental health.</p>
             </div>
             
             <div class="treatments-grid">
                 <!-- Treatment 1 -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon"><i class="fa-solid fa-x-ray"></i></div>
-                    <h3>Muayene ve Röntgen</h3>
-                    <p>Kliniğimize geldiğinizde sadece şikayetinize odaklanmıyor, radyolojik görüntülemelerle desteklenmiş kapsamlı bir muayene yapıyoruz. Bu detaylı incelemeler sayesinde, henüz fark etmediğiniz sorunları erkenden saptayarak size en uygun ve güvenilir tedavi planını oluşturuyoruz.</p>
+                    <h3>Examination and X-Ray</h3>
+                    <p>When you arrive at our clinic, we don't just focus on your complaint; we perform a comprehensive examination supported by radiological imaging. Thanks to these detailed inspections, we detect unnoticed problems early and create the most suitable and reliable treatment plan for you.</p>
                 </div>
                 
                 <!-- Treatment 2 -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3>Diş Eti Tedavisi</h3>
-                    <p>Diş ve dental implant çevresi dokularda gelişen hastalıkların teşhis ve tedavisini amaçlar. Diş eti hastalıkları dişin çevresinde yer alan diş eti, kemik gibi yapıların kaybına sebep olur. Bu hastalıklarda esas sebep mikrobiyal dental plaktır. Dental plağın uzaklaştırılması tedavide ve hastalığın önlenmesinde esastır.</p>
+                    <h3>Periodontology (Gum Disease)</h3>
+                    <p>It aims to diagnose and treat diseases developing in the tissues surrounding the teeth and dental implants. Gum diseases cause the loss of surrounding structures such as gums and bone. The main cause involves microbial dental plaque. Removing this plaque is essential for both treatment and prevention.</p>
                 </div>
                 
                 <!-- Treatment 3 -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="icon"><i class="fa-solid fa-fill-drip"></i></div>
-                    <h3>Diş Dolgusu</h3>
-                    <p>Çürük nedeni ile madde kaybına uğramış dişlerin, çürük temizlendikten sonra çeşitli materyaller ile doldurularak, dişin işlevlerini yerine getirmesini sağlamak amacı ile yapılan tedavilerdir. Diş dolgusu işlemi çürük seviyesine göre değişiklik gösterebilir. Öncesinde hekiminiz gerek görürse lokal anestezi uygular.</p>
+                    <h3>Dental Fillings</h3>
+                    <p>These treatments aim to restore the function of teeth that have lost substance due to decay. After cleaning the decay, the tooth is filled with various materials. The filling procedure may vary depending on the extent of the decay. Local anesthesia is applied beforehand if deemed necessary.</p>
                 </div>
 
                 <!-- Treatment 4 -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <h3>Diş Beyazlatma</h3>
-                    <p>Çay, kahve, asitli içecekler ve sigara kullanımı ya da biyolojik etkenlerle sararan dişlerin özel kimyasallarla birkaç ton açılarak beyazlık kazanmasıdır.</p>
+                    <h3>Teeth Whitening</h3>
+                    <p>It involves lightening the color of teeth that have yellowed due to tea, coffee, acidic beverages, smoking, or biological factors by several shades using special chemical agents to achieve a whiter appearance.</p>
                 </div>
 
                 <!-- Treatment 5 -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon"><i class="fa-solid fa-syringe"></i></div>
-                    <h3>Kanal Tedavisi</h3>
-                    <p>Kanal tedavisi dişin kök kısmında yer alan dokular ile ilişkili tedavidir. Kullanılan aletler yardımıyla kökün içi temizlenir. Tedavi, tek seferde bitebileceği gibi, dişin durumuna bağlı olarak, birkaç hafta boyunca farklı seanslar şeklinde de uygulanabilir. Hasta tarafından tedavinin aksatılması, tedavinin uzamasına, şikayetlerin devam etmesine ve başarı oranının düşmesine neden olabilir.</p>
+                    <h3>Root Canal Treatment</h3>
+                    <p>This treatment deals with the tissues in the root portion of the tooth. The inside of the root is cleaned using specialized instruments. Depending on the condition, the treatment might be completed in a single session or span several sessions over a few weeks. Interrupting the treatment can delay recovery and decrease the success rate.</p>
                 </div>
 
                 <!-- Treatment 6 -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="icon"><i class="fa-solid fa-teeth-open"></i></div>
-                    <h3>Ortodonti Tedavisi</h3>
-                    <p>Kapanış bozuklukları, dişlerdeki çapraşıklıklar ve ayrı konumlanmış dişlerin tel (braket) ya da gelişmiş apereyler yardımıyla çene kavisinde doğru şekilde sıralanması tedavilerini kapsar.</p>
+                    <h3>Orthodontics</h3>
+                    <p>It encompasses treatments to correct bite disorders, crowded teeth, and widely spaced teeth, aligning them properly within the dental arch using braces (brackets) or advanced clear aligners.</p>
                 </div>
 
                 <!-- Treatment 7 -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon"><i class="fa-solid fa-tooth"></i></div>
-                    <h3>Diş Çekimi</h3>
-                    <p>Tedavi edilemeyecek durumda olan dişlerin çekimi kalan dokuları korumak için önemli bir işlemdir. Gömülü olma gibi durumlarda cerrahi çekim yolu tercih edilebilir. Bu işlemler genellikle lokal anestezi altında yapılır. Ancak gerek duyulduğunda bilinçli sedasyon veya genel anestezi altında da yapılabilir. Sigara, alkol ve diğer alışkanlıklar yara iyileşmesini geciktireceğinden tedavinizin olumsuz sonuçlanmasına neden olacaktır. Bu konuda da hekiminizin önerilerine uyunuz.</p>
+                    <h3>Tooth Extraction</h3>
+                    <p>Extracting untreatable teeth is crucial for protecting the remaining healthy tissues. Surgical extraction might be preferred for impacted teeth. These procedures are usually performed under local anesthesia, though conscious sedation or general anesthesia can be used if needed. Avoid smoking and alcohol, as they delay healing.</p>
                 </div>
 
                 <!-- Treatment 8 -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon"><i class="fa-solid fa-scissors"></i></div>
-                    <h3>Cerrahi Gömülü Diş Çekimi</h3>
-                    <p>Gömülü olma gibi durumlarda cerrahi çekim yolu tercih edilebilir. Bu işlemler genellikle lokal anestezi altında yapılır. Ancak gerek duyulduğunda bilinçli sedasyon veya genel anestezi altında da yapılabilir.</p>
+                    <h3>Surgical Impacted Tooth Extraction</h3>
+                    <p>For impacted teeth, a surgical extraction approach is preferred. These procedures are generally carried out under local anesthesia. However, when required, they can also be performed under conscious sedation or general anesthesia.</p>
                 </div>
 
                 <!-- Treatment 9 -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon"><i class="fa-solid fa-gem"></i></div>
-                    <h3>Protez</h3>
-                    <p>İleri madde kaybı olan dişlerde veya diş eksikliklerinde, ağıza yapıştırılan ve hastanın çıkaramadığı sabit protezler kullanılır.
-Bu protezler metal destekli porselen ya da zirkonyum gibi materyallerden yapılabilir.
-Kaplama veya köprü yapılabilmesi için dişlerin belirli ölçüde küçültülmesi gerekir.
-İmplantın mümkün olmadığı ya da tercih edilmediği tam dişsizlik durumlarında ise takıp çıkarılabilen protezler tercih edilir.</p>
+                    <h3>Prosthetics</h3>
+                    <p>In cases of advanced tooth wear or missing teeth, fixed prostheses (like metal-supported porcelain or zirconium crowns) are used, which the patient cannot remove. Teeth must be reduced to a certain size for crowns or bridges. Additionally, removable prostheses are offered for completely edentulous patients if implants are not suitable.</p>
                 </div>
 
                 <!-- Treatment 10 -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="icon"><i class="fa-solid fa-child-reaching"></i></div>
-                    <h3>Çocuk Diş Hekimliği</h3>
-                    <p>Bebeklikten ergenliğe kadar geçen sürede çocukların süt ve kalıcı dişlerinin korunmasını amaçlayan uygulamalardır. Çürük gelişimini önleyici koruyucu dolgular ve flor uygulamalarını içerir.</p>
+                    <h3>Pediatric Dentistry</h3>
+                    <p>These practices aim to protect the primary and permanent teeth of children from infancy through adolescence. They include preventive measures such as protective sealants and fluoride applications to stop decay from developing.</p>
                 </div>
 
                 <!-- Treatment 11 -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-                    <h3>Dental İmplant</h3>
-                    <p>Diş eksiklikleri, çene eklemine iki taraflı olarak dengesiz kuvvet iletildiğinden, daha ileri dönemlerde eklem problemlerine yol açabilmekte ve fonksiyona girmeyen çene kemiğinin devamlı bir şekilde erimesine neden olmaktadır. İmplantlar çene kemiğine, lokal anestezi altında, steril koşullarda yerleştirilen ve diş köklerini taklit eden ve bu problemleri önlemeye yarayan bir tedavi yöntemidir.</p>
+                    <h3>Dental Implants</h3>
+                    <p>Missing teeth can cause unbalanced forces on the jaw joints, leading to joint issues and the continuous melting of unused jawbone. Implants are a reliable treatment designed to mimic natural tooth roots, placed surgically into the jawbone under sterile conditions and local anesthesia, thereby preventing these problems.</p>
                 </div>
             </div>
         </div>
@@ -163,9 +160,9 @@ Kaplama veya köprü yapılabilmesi için dişlerin belirli ölçüde küçült�
     <!-- Banner Info Section -->
     <section class="banner" data-aos="fade-in">
         <div class="container">
-            <span class="tagline" data-aos="fade-up">SAĞLIKLI GÜLÜŞLER</span>
-            <h2 data-aos="fade-up" data-aos-delay="100">Daha fazla bilgi ve randevu için bizimle iletişime geçin.</h2>
-            <a href="iletisim.html" class="btn btn-primary" data-aos="fade-up" data-aos-delay="300">İletişime Geç</a>
+            <span class="tagline" data-aos="fade-up">HEALTHY SMILES</span>
+            <h2 data-aos="fade-up" data-aos-delay="100">Contact us for more information and appointments.</h2>
+            <a href="contact.html" class="btn btn-primary" data-aos="fade-up" data-aos-delay="300">Contact Us</a>
         </div>
     </section>
 
@@ -175,7 +172,7 @@ Kaplama veya köprü yapılabilmesi için dişlerin belirli ölçüde küçült�
             <div class="footer-info">
                 <div class="logo">
                     <img src="images/logo.png" alt="Logotype" style="height: 100px; width: auto; border-radius: 4px; mix-blend-mode: multiply;">
-                    <h2 style="font-size: 1.5rem; margin:0;">G Plus Diş Hekimi</h2>
+                    <h2 style="font-size: 1.5rem; margin:0;">G Plus Dentist</h2>
                 </div>
                 <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
             </div>
@@ -198,16 +195,16 @@ Kaplama veya köprü yapılabilmesi için dişlerin belirli ölçüde küçült�
                 </ul>
             </div>
             <div>
-                <h4>İLETİŞİM</h4>
+                <h4>CONTACT</h4>
                 <ul>
                         <li><a href="tel:+905011749554"><i class="fa-solid fa-phone"></i> <span>+90 501 174 95 54</span></a></li>
                         <li><a href="mailto:gplusdishekimi@gmail.com"><i class="fa-solid fa-envelope"></i> <span class="email-text">gplusdishekimi@gmail.com</span></a></li>
-                        <li><a href="https://www.google.com/maps/place/Diş+Hekimi+Bükem+Gezginer/@41.0254478,28.8154255,17z/data=!3m1!4b1!4m6!3m5!1s0x14caa500405deb1d:0xfdbac48294c09ecf!8m2!3d41.0254478!4d28.8154255!16s%2Fg%2F11yrstpmqw!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-dot"></i> <span>G Plus, Bağlar, Mimar Sinan Cd No:37A, 34212 Bağcılar/İstanbul, Türkiye</span></a></li>
+                        <li><a href="https://www.google.com/maps/place/Diş+Hekimi+Bükem+Gezginer/@41.0254478,28.8154255,17z/data=!3m1!4b1!4m6!3m5!1s0x14caa500405deb1d:0xfdbac48294c09ecf!8m2!3d41.0254478!4d28.8154255!16s%2Fg%2F11yrstpmqw!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-dot"></i> <span>G Plus, Bağlar, Mimar Sinan Cd No:37A, 34212 Bağlar/Istanbul, Turkey</span></a></li>
                 </ul>
             </div>
         </div>
         <div class="container footer-bottom">
-            <p>&copy; 2026 G Plus Diş Hekimi. All rights reserved.</p>
+            <p>&copy; 2026 G Plus Dentist. All rights reserved.</p>
         </div>
     </footer>
 
