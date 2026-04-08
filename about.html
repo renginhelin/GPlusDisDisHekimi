@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        // Language persistence: If preference is TR, redirect to hakkımızda.html
+        if (localStorage.getItem('preferredLang') === 'tr') {
+            window.location.replace('hakkımızda.html' + window.location.hash);
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - G Plus Diş Hekimi</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- AOS CSS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Flag Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .about-page {
+            padding: 160px 0 100px;
+        }
+        .about-story {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            margin-bottom: 90px;
+            align-items: start;
+        }
+        .story-left {
+            position: sticky;
+            top: 120px;
+        }
+        .story-heading {
+            font-size: 2rem;
+            color: var(--primary);
+            line-height: 1.3;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .story-highlight {
+            font-size: 1.1rem;
+            color: var(--accent);
+            line-height: 1.6;
+            border-left: 3px solid var(--accent);
+            padding-left: 15px;
+        }
+        .story-right p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .quote-box {
+            background: var(--bg-light);
+            padding: 25px 30px;
+            border-radius: var(--radius);
+            margin-top: 30px;
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        .quote-box i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            opacity: 0.5;
+            margin-top: 5px;
+        }
+        .quote-box p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 500;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .about-card {
+            background: var(--white);
+            padding: 50px 40px;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+            height: 100%;
+        }
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            border-color: rgba(136, 183, 164, 0.4);
+        }
+        .about-card .icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+        }
+        .about-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .about-card p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        .about-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .about-card ul li {
+            margin-bottom: 12px;
+            color: var(--text-light);
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.5;
+        }
+        .about-card ul li i {
+            color: var(--accent);
+            margin-top: 4px;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 992px) {
+            .about-story {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin-bottom: 60px;
+            }
+            .story-left {
+                position: static;
+            }
+            .story-heading {
+                font-size: 1.8rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index-en.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit;">
+                    <img src="images/logo.png" alt="Logotype" style="height: 100px; width: auto; border-radius: 4px; mix-blend-mode: multiply;">
+                    <h1>G Plus Diş Hekimi</h1>
+                </a>
+            </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="about.html" class="active">About Us</a>
+                <a href="treatments.html">Treatments</a>
+                <a href="contact.html">Contact</a>
+                <a href="faq.html">FAQ</a>
+                <a href="index-en.html#contact" class="btn btn-primary">Appointment</a>
+                <div class="lang-dropdown">
+                    <button class="lang-btn"><span class="fi fi-gb"></span> English <i class="fa-solid fa-chevron-down" style="font-size: 0.7em; margin-top: 2px;"></i></button>
+                    <div class="lang-menu">
+                        <a href="javascript:void(0);" onclick="localStorage.setItem('preferredLang', 'tr'); window.location.replace('hakkımızda.html');"><span class="fi fi-tr"></span> Türkçe</a>
+                        <a href="javascript:void(0);" onclick="localStorage.setItem('preferredLang', 'en'); window.location.reload();"><span class="fi fi-gb"></span> English</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about-page">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="tagline">WHO WE ARE</span>
+                <h2>About Us</h2>
+            </div>
+            
+            <div class="about-story">
+                <div class="story-left" data-aos="fade-right" data-aos-delay="100">
+                    <h3 class="story-heading">An Approach Promoting the True Essence of Dentistry</h3>
+                    <div class="story-highlight">
+                        Our goal is not to rush procedures, but to truly dedicate time to you and plan for your long-term health.
+                    </div>
+                </div>
+                <div class="story-right" data-aos="fade-left" data-aos-delay="200">
+                    <p>Our practice was established to provide services in a calm, safe, and boutique environment, preserving the core values of the medical profession. Our aim is not to manage heavy patient traffic, but to accurately understand and address your individual needs.</p>
+                    <p>We are aware of the many non-medical, commercially driven establishments today; that is why we embrace an approach deeply rooted in professional medical responsibility. We plan every treatment as if treating our own family, apply it with utmost care, and ensure the process is communicated to you transparently.</p>
+                    
+                    <div class="quote-box" data-aos="zoom-in" data-aos-delay="300">
+                        <i class="fa-solid fa-quote-left"></i>
+                        <p>We want you to feel comfortable, peaceful, and safe in our practice. For us, a dental treatment is not just a procedure; it is a relationship built on trust.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-grid">
+                <!-- Vision -->
+                <div class="about-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="icon"><i class="fa-solid fa-eye"></i></div>
+                    <h3>Our Vision</h3>
+                    <p>To foster a culture where people feel safe, ethical dentistry is at the forefront, and high-quality service is accessible to everyone. We believe that securing long-term health is always more valuable than quick fixes.</p>
+                </div>
+
+                <!-- Mission -->
+                <div class="about-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>To genuinely understand the needs of every individual visiting our practice, offer the right treatments transparently, and build a sustainable relationship with our patients based on mutual trust. Our priority is touching people's lives positively by preserving medical ethics over commercial interests.</p>
+                </div>
+
+                <!-- Values -->
+                <div class="about-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="icon"><i class="fa-solid fa-heart"></i></div>
+                    <h3>Our Values</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Ethical conduct and reliability</li>
+                        <li><i class="fa-solid fa-check"></i> Human-centric, sincere approach</li>
+                        <li><i class="fa-solid fa-check"></i> Open, clear, and transparent communication</li>
+                        <li><i class="fa-solid fa-check"></i> High-quality materials and meticulous application</li>
+                        <li><i class="fa-solid fa-check"></i> Commitment to long-term health protection</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Info Section -->
+    <section class="banner" data-aos="fade-in">
+        <div class="container">
+            <span class="tagline" data-aos="fade-up">HEALTHY SMILES</span>
+            <h2 data-aos="fade-up" data-aos-delay="100">Contact us for more information and appointments.</h2>
+            <a href="contact.html" class="btn btn-primary" data-aos="fade-up" data-aos-delay="300">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Logotype" style="height: 100px; width: auto; border-radius: 4px; mix-blend-mode: multiply;">
+                    <h2 style="font-size: 1.5rem; margin:0;">G Plus Diş Hekimi</h2>
+                </div>
+                <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+            </div>
+            <div>
+                <h4>Quick Menu</h4>
+                <ul>
+                    <li><a href="index-en.html">Home</a></li>
+                    <li><a href="treatments.html">Treatments</a></li>
+                    <li><a href="index-en.html#clinic">Our Clinic</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><a href="#">Clarification Text</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>CONTACT</h4>
+                <ul>
+                        <li><a href="tel:+905011749554"><i class="fa-solid fa-phone"></i> <span>+90 501 174 95 54</span></a></li>
+                        <li><a href="mailto:gplusdishekimi@gmail.com"><i class="fa-solid fa-envelope"></i> <span class="email-text">gplusdishekimi@gmail.com</span></a></li>
+                        <li><a href="https://www.google.com/maps/place/Diş+Hekimi+Bükem+Gezginer/@41.0254478,28.8154255,17z/data=!3m1!4b1!4m6!3m5!1s0x14caa500405deb1d:0xfdbac48294c09ecf!8m2!3d41.0254478!4d28.8154255!16s%2Fg%2F11yrstpmqw!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-dot"></i> <span>G Plus, Bağlar, Mimar Sinan Cd No:37A, 34212 Bağcılar/Istanbul, Turkey</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 G Plus Diş Hekimi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://api.whatsapp.com/send?phone=905011749554" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            if(navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        AOS.init({
+            duration: 800, 
+            once: true,
+            offset: 50
+        });
+
+        // Add a slight blur effect to header on scroll
+        window.addEventListener("scroll", () => {
+            const header = document.querySelector(".header");
+            if (window.scrollY > 50) {
+                header.style.boxShadow = "0 4px 20px rgba(0,0,0,0.05)";
+            } else {
+                header.style.boxShadow = "none";
+            }
+        });
+    </script>
+</body>
+</html>
