@@ -179,6 +179,22 @@ a { text-decoration: none; color: var(--primary); transition: var(--transition);
     .services-grid { grid-template-columns: 1fr; }
     .service-card:last-child { grid-column: auto; width: 100%; justify-self: stretch; }
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .footer ul li > a,
+    .footer ul li > div { 
+        display: inline-flex !important; 
+        justify-content: center; 
+        text-align: center !important; 
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer ul li > a i,
+    .footer ul li > div i { 
+        margin-bottom: 8px; 
+        margin-right: 0 !important; 
+        margin-top: 0 !important;
+    }
+    .footer ul li > div .fa-phone { margin-bottom: 8px; }
+    .footer ul li > div > div { align-items: center !important; }
     
     /* Mobile Header & Navigation */
     .header {
