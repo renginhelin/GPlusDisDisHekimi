@@ -32,6 +32,8 @@ a { text-decoration: none; color: var(--primary); transition: var(--transition);
 .btn-primary:hover { background-color: transparent; color: var(--primary); -webkit-transform: translateY(-3px); transform: translateY(-3px); }
 .btn-secondary { background-color: transparent; color: var(--primary); border: 1px solid rgba(18, 18, 18, 0.2); }
 .btn-secondary:hover { border-color: var(--primary); -webkit-transform: translateY(-3px); transform: translateY(-3px); }
+.btn-accent { background-color: var(--accent); color: var(--white); border: 1px solid var(--accent); }
+.btn-accent:hover { background-color: transparent; color: var(--accent); -webkit-transform: translateY(-3px); transform: translateY(-3px); }
 
 .tagline { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--earthy); font-weight: 700; display: inline-block; margin-bottom: 15px; }
 
@@ -265,6 +267,47 @@ a { text-decoration: none; color: var(--primary); transition: var(--transition);
 .input-group input, .input-group textarea { width: 100%; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; padding: 15px; font-family: inherit; font-size: 0.95rem; color: var(--text); background: var(--white); outline: none; transition: var(--transition); }
 .input-group input:focus, .input-group textarea:focus { border-color: var(--primary); }
 .map-wrapper { border-radius: var(--radius); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+/* Marquee / Auto-scrolling treatments */
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+    padding: 20px 0;
+    margin: 40px 0;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.marquee-content {
+    display: inline-flex;
+    gap: 20px;
+    animation: scrollMarquee 40s linear infinite;
+}
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+.marquee-card {
+    background: var(--white);
+    padding: 15px 30px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.04);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary);
+    white-space: nowrap;
+    transition: var(--transition);
+}
+.marquee-card:hover {
+    border-color: rgba(136, 183, 164, 0.4);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+@keyframes scrollMarquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 10px)); }
+}
 
 @media (max-width: 768px) {
     .contact-grid-main { grid-template-columns: 1fr; gap: 40px; }
