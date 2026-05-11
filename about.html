@@ -121,6 +121,67 @@
         </div>
     </section>
 
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="tagline">GALLERY</span>
+                <h2>Glimpses From Our Clinic</h2>
+            </div>
+            
+            <div class="gallery-slider-wrapper" data-aos="fade-up" data-aos-delay="100">
+                <button class="gallery-nav-btn prev-btn" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                
+                <div class="gallery-track" id="galleryTrack">
+                    <div class="gallery-item">
+                        <img src="images/1.jpeg" alt="Gallery 1"> 
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/2.jpeg" alt="Gallery 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/3.jpeg" alt="Gallery 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/4.jpeg" alt="Gallery 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/5.jpeg" alt="Gallery 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/6.jpeg" alt="Gallery 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/7.jpeg" alt="Gallery 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/8.jpeg" alt="Gallery 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/9.jpeg" alt="Gallery 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/10.jpeg" alt="Gallery 1">
+                    </div>
+                    <div class="gallery-item">
+                        <video src="images/1.mp4" autoplay loop muted playsinline controls></video>
+                    </div>
+                    <div class="gallery-item">
+                        <video src="images/2.mp4" autoplay loop muted playsinline controls></video>
+                    </div>
+                    <div class="gallery-item">
+                        <video src="images/3.mp4" autoplay loop muted playsinline controls></video>
+                    </div>
+                    <div class="gallery-item">
+                        <video src="images/4.mp4" autoplay loop muted playsinline controls></video>
+                    </div>
+                </div>
+
+                <button class="gallery-nav-btn next-btn" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
     <!-- Banner Info Section -->
     <section class="banner" data-aos="fade-in">
         <div class="container">
@@ -184,6 +245,17 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
+    <!-- Lightbox Overlay -->
+    <div class="lightbox-overlay" id="lightboxOverlay">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox"><i class="fa-solid fa-xmark"></i></button>
+            <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="lightbox-nav-btn lightbox-next" id="lightboxNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+            <img src="" alt="Enlarged Media" id="lightboxImg">
+            <video src="" controls id="lightboxVideo"></video>
+        </div>
+    </div>
+
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -218,6 +290,95 @@
                 header.style.boxShadow = "none";
             }
         });
+
+        // Gallery Slider Logic
+        const track = document.getElementById('galleryTrack');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+
+        if(track && prevBtn && nextBtn) {
+            const scrollAmount = () => track.offsetWidth / 2; // Scroll half the container width
+            
+            nextBtn.addEventListener('click', () => {
+                track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+            });
+        }
+
+        // Lightbox Logic
+        const galleryMedia = document.querySelectorAll('.gallery-item img, .gallery-item video');
+        const lightboxOverlay = document.getElementById('lightboxOverlay');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxVideo = document.getElementById('lightboxVideo');
+
+        let currentMediaIndex = 0;
+
+        if(galleryMedia.length > 0 && lightboxOverlay) {
+            const updateLightbox = (index) => {
+                lightboxImg.classList.remove('active');
+                lightboxVideo.classList.remove('active');
+                lightboxImg.src = '';
+                lightboxVideo.src = '';
+                lightboxVideo.pause();
+                
+                const media = galleryMedia[index];
+                if (media.tagName === 'IMG') {
+                    lightboxImg.src = media.src;
+                    lightboxImg.classList.add('active');
+                } else if (media.tagName === 'VIDEO') {
+                    lightboxVideo.src = media.src;
+                    lightboxVideo.classList.add('active');
+                }
+            };
+
+            galleryMedia.forEach((media, index) => {
+                media.addEventListener('click', () => {
+                    currentMediaIndex = index;
+                    updateLightbox(currentMediaIndex);
+                    lightboxOverlay.classList.add('active');
+                });
+            });
+
+            const closeLightbox = () => {
+                lightboxOverlay.classList.remove('active');
+                lightboxVideo.pause();
+                lightboxImg.src = '';
+                lightboxVideo.src = '';
+            };
+
+            const nextLightbox = () => {
+                currentMediaIndex = (currentMediaIndex + 1) % galleryMedia.length;
+                updateLightbox(currentMediaIndex);
+            };
+
+            const prevLightbox = () => {
+                currentMediaIndex = (currentMediaIndex - 1 + galleryMedia.length) % galleryMedia.length;
+                updateLightbox(currentMediaIndex);
+            };
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            
+            if(lightboxPrev && lightboxNext) {
+                lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); prevLightbox(); });
+                lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); nextLightbox(); });
+            }
+
+            lightboxOverlay.addEventListener('click', (e) => {
+                if(e.target === lightboxOverlay) closeLightbox();
+            });
+            document.addEventListener('keydown', (e) => {
+                if(!lightboxOverlay.classList.contains('active')) return;
+                if(e.key === 'Escape') closeLightbox();
+                if(e.key === 'ArrowRight') nextLightbox();
+                if(e.key === 'ArrowLeft') prevLightbox();
+            });
+        }
     </script>
 </body>
 </html>
