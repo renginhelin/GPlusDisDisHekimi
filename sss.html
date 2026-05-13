@@ -2,12 +2,6 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <script>
-        // Language persistence: If preference is EN, redirect to faq.html
-        if (localStorage.getItem('preferredLang') === 'en') {
-            window.location.replace('faq.html' + window.location.hash);
-        }
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="G Plus Diş Hekimi'nde diş tedavileri, ağız sağlığı ve politikalarımız hakkında sıkça sorulan soruların cevaplarını bulun.">
     <title>Sıkça Sorulan Sorular - G Plus Diş Hekimi</title>
@@ -31,6 +25,13 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.gplusdishekimi.com/images/sayfa.png">
 
+
+    <script>
+        // Language persistence: If preference is EN, redirect to faq.html
+        if (localStorage.getItem('preferredLang') === 'en') {
+            window.location.replace('faq.html' + window.location.hash);
+        }
+    </script>
 </head>
 <body>
 
@@ -39,13 +40,13 @@
         <div class="container">
             <div class="logo">
                 <a href="index.html" class="inline-style-1">
-                    <img src="images/logo.png" alt="Logotype" class="inline-style-2">
+                    <img src="images/logo.png" alt="G Plus Diş Hekimi Istanbul Bağcılar Logo" class="inline-style-2">
                     <h1>G Plus Diş Hekimi</h1>
                 </a>
             </div>
             <nav class="nav-links" id="navLinks">
                 <a href="index.html">Ana Sayfa</a>
-                <a href="hakkımızda.html">Hakkımızda</a>
+                <a href="hakkimizda.html">Hakkımızda</a>
                 <a href="tedaviler.html">Tedaviler</a>
                 <a href="iletisim.html">İletişim</a>
                 <a href="sss.html" class="active">SSS</a>
@@ -163,7 +164,7 @@
         <div class="container footer-grid">
             <div class="footer-info">
                 <div class="logo">
-                    <img src="images/logo.png" alt="Logotype" class="inline-style-2">
+                    <img src="images/logo.png" alt="G Plus Diş Hekimi Istanbul Bağcılar Logo" class="inline-style-2">
                     <h2 class="inline-style-5">G Plus Diş Hekimi</h2>
                 </div>
                 <p>Gülüşünüz Gülüşümüzün Sebebi.</p>
@@ -172,7 +173,7 @@
                 <h4>Hızlı Menü</h4>
                 <ul>
                     <li><a href="index.html">Ana Sayfa</a></li>
-                    <li><a href="hakkımızda.html">Hakkımızda</a></li>
+                    <li><a href="hakkimizda.html">Hakkımızda</a></li>
                     <li><a href="tedaviler.html">Tedaviler</a></li>
                     <li><a href="iletisim.html">İletişim</a></li>
                 </ul>
